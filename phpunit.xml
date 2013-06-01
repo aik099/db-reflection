@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="true"
+	backupStaticAttributes="false"
+	bootstrap="tests/bootstrap.php"
+	colors="true"
+	convertErrorsToExceptions="true"
+	convertNoticesToExceptions="true"
+	convertWarningsToExceptions="false"
+	processIsolation="false"
+	stopOnFailure="false"
+	strict="true"
+	verbose="true">
+
+	<testsuites>
+		<testsuite name="Database">
+			<directory>tests/aik099/Database</directory>
+		</testsuite>
+	</testsuites>
+
+	<!--<logging>
+		<log type="coverage-html" target="build/coverage" title="BankAccount"
+			 charset="UTF-8" yui="true" highlight="true"
+			 lowUpperBound="35" highLowerBound="70"/>
+	</logging>-->
+
+	<listeners>
+		<listener class="\Mockery\Adapter\Phpunit\TestListener"/>
+	</listeners>
+
+	<php>
+		<server name="FIXTURE_HOST" value="localhost"/>
+		<server name="FIXTURE_USER" value="user"/>
+		<server name="FIXTURE_PASS" value="password"/>
+		<server name="FIXTURE_DB" value="database"/>
+	</php>
+
+	<filter>
+		<whitelist>
+			<directory>library/aik099</directory>
+		</whitelist>
+	</filter>
+</phpunit>
